@@ -1,0 +1,110 @@
+
+{% load static %}
+<!DOCTYPE html>
+<head lang="en">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=" device-width, initial-scale">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <meta name="google" content="translate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous" />
+</head>
+
+<body>
+    <style>
+        body {
+        font-family: "Roboto", sans-serif;
+        font-size: 17px;
+        background-color: #fdfdfd;
+    }
+    .shadow {
+        box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+    }
+    .btn-danger {
+        color: #fff;
+        background-color: #f00000;
+        border-color: #dc281e;
+    }
+    .masthead {
+        background: #3398E1;
+        height: auto;
+        padding-bottom: 15px;
+        box-shadow: 0 16px 48px #E3E7EB;
+        padding-top: 10px;
+    }
+</style>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
+        <div class="container-fluid">
+            <a class="navbar-brand" >Pathfinder of Leaders</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item text-black">
+                        <a class="nav-link text-black font-weight-bold" href="{% url 'acceuil' %}">Home</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item text-black">
+                        <a class="nav-link text-black font-weight-bold" href="{% url 'userprofile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item text-black">
+                        <a class="nav-link text-black font-weight-bold" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                   
+                  <li class="nav-item text-black">
+                    <a class="nav-link text-black font-weight-bold" href="{% url 'register' %}">Register</a>
+                </li>
+                <li class="nav-item text-black">
+                  <a class="nav-link text-black font-weight-bold" href="{% url 'login' %}">Login</a>
+              </li>
+              {% endif %}
+              <li class="nav-item text-black">
+                <a class="nav-link text-black font-weight-bold" href="{% url 'blog:postlist' %}">Blogs</a>
+            </li>
+            
+         
+        <img
+      class="rounded-circle account-img"
+      src="{{ user.profile.photo_profile.url }}"
+    />
+    <a class="nav-link" href="#">{{request.user.username}}</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+
+  
+  
+  
+    {% block css %}
+    {% endblock %}
+    {% block body %}
+  
+    {% endblock body  %}
+  </div>
+    
+    
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
